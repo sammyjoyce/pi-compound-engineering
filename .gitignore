@@ -1,0 +1,22 @@
+# dependencies
+node_modules/
+
+# pi / agent workspace
+.pi/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# logs
+*.log
+
+# env files
+.env
+.env.*
+
+# build output (if added later)
+dist/
+build/

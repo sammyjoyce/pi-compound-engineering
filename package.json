@@ -1,0 +1,36 @@
+{
+  "name": "pi-compound-engineering",
+  "version": "0.1.0",
+  "description": "Compound Engineering workflows for pi (commands, skills, and subagents)",
+  "type": "module",
+  "keywords": ["pi-package"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sammyjoyce/pi-compound-engineering.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sammyjoyce/pi-compound-engineering/issues"
+  },
+  "homepage": "https://github.com/sammyjoyce/pi-compound-engineering#readme",
+  "files": [
+    "extensions",
+    "skills",
+    "prompts",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "peerDependencies": {
+    "@mariozechner/pi-agent-core": "*",
+    "@mariozechner/pi-ai": "*",
+    "@mariozechner/pi-coding-agent": "*",
+    "@mariozechner/pi-tui": "*",
+    "@sinclair/typebox": "*"
+  },
+  "pi": {
+    "extensions": ["./extensions/compound-engineering/index.ts"],
+    "skills": ["./skills"],
+    "prompts": ["./prompts"]
+  }
+}
