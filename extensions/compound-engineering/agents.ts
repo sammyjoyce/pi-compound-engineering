@@ -51,7 +51,17 @@ function* walk(dir: string): Generator<string> {
 	}
 }
 
-function parseTools(raw: unknown): string[] | undefined {
+type FrontmatterScalar = string | number | boolean | null;
+
+interface AgentFrontmatter {
+	name?: FrontmatterScalar;
+	description?: FrontmatterScalar;
+	tools?: FrontmatterScalar;
+	model?: FrontmatterScalar;
+	[key: string]: FrontmatterScalar | undefined;
+}
+
+function parseTools(raw: FrontmatterScalar | undefined): string[] | undefined {
 	if (typeof raw !== "string") return undefined;
 
 	const tools = raw
@@ -63,7 +73,7 @@ function parseTools(raw: unknown): string[] | undefined {
 	return tools.length > 0 ? tools : undefined;
 }
 
-function normalizeModel(raw: unknown): string | undefined {
+function normalizeModel(raw: FrontmatterScalar | undefined): string | undefined {
 	if (typeof raw !== "string") return undefined;
 	const m = raw.trim();
 	if (!m || m === "inherit") return undefined;
@@ -89,7 +99,7 @@ function loadAgentsFromDir(dir: string, source: AgentSource, recursive: boolean)
 			continue;
 		}
 
-		const { frontmatter, body } = parseFrontmatter<Record<string, unknown>>(content);
+		const { frontmatter, body } = parseFrontmatter<AgentFrontmatter>(content);
 		const name = typeof frontmatter.name === "string" ? frontmatter.name.trim() : "";
 		const description = typeof frontmatter.description === "string" ? frontmatter.description.trim() : "";
 

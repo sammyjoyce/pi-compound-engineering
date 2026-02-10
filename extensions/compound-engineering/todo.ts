@@ -228,7 +228,7 @@ export function registerTodoTool(pi: ExtensionAPI): void {
 				ctx.ui.notify("/compound_todos requires interactive mode", "error");
 				return;
 			}
-			await ctx.ui.custom<void>((_tui, theme, _kb, done) => new TodoListComponent(todos, theme, () => done()));
+			await ctx.ui.custom<void>((_tui, theme, _kb, done) => new TodoListComponent(todos, theme, () => done()), { overlay: true });
 		},
 	});
 }

@@ -166,7 +166,7 @@ export function registerQuestionTool(pi: ExtensionAPI): void {
 					},
 					handleInput,
 				};
-			});
+			}, { overlay: true });
 
 			const simpleOptions = params.options.map((o) => o.label);
 

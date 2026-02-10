@@ -31,6 +31,7 @@
   "pi": {
     "extensions": ["./extensions/compound-engineering/index.ts"],
     "skills": ["./skills"],
-    "prompts": ["./prompts"]
+    "prompts": ["./prompts"],
+    "image": "https://placehold.co/1200x630/png?text=pi+compound+engineering"
   }
 }
